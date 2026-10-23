@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="Contact Talent Bridge HR Solutions – Call, email or send a message.">
+    <title>Contact Us – Talent Bridge HR Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+    <style>
+        /* Contact page specific */
+        .contact-page { padding: 90px 0 48px; }
+        .contact-hero { text-align: center; margin-bottom: 36px; }
+        .contact-hero h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: 8px; }
+        .contact-hero p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* Contact cards row */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        .contact-card:hover { border-color: var(--primary-light); }
+        .contact-card-icon {
+            width: 42px; height: 42px;
+            background: rgba(30, 64, 175, 0.12);
+            border: 1px solid rgba(30, 64, 175, 0.2);
+            border-radius: var(--radius);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary-light);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .contact-card-text strong { display: block; font-size: 0.8rem; color: var(--text-muted); font-weight: 600; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .contact-card-text span { font-size: 0.925rem; color: var(--white); font-weight: 500; }
+
+        /* Quick action buttons */
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        /* Toggle message button */
+        .toggle-msg-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            max-width: 340px;
+            margin: 0 auto 24px;
+            padding: 12px 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: var(--transition);
+        }
+        .toggle-msg-btn:hover { border-color: var(--primary-light); color: var(--white); }
+        .toggle-msg-btn i.chevron { transition: transform 0.25s ease; }
+        .toggle-msg-btn.open i.chevron { transform: rotate(180deg); }
+
+        /* Collapsible form */
+        .msg-form-wrap {
+            max-width: 600px;
+            margin: 0 auto;
+            display: none;
+            animation: fadeUp 0.25s ease;
+        }
+        .msg-form-wrap.visible { display: block; }
+
+        .msg-form-inner {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+        }
+        .msg-form-inner h3 { font-size: 1rem; margin-bottom: 16px; }
+
+        .hours-note {
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .hours-note i { color: var(--primary-light); font-size: 0.72rem; }
+
+        @media (max-width: 640px) {
+            .contact-cards { grid-template-columns: 1fr; }
+            .quick-actions { flex-direction: column; align-items: center; }
+            .quick-actions .btn { width: 100%; max-width: 300px; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="site-header" id="site-header">
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-bridge-water"></i></div>
+            <span>Talent Bridge <span class="logo-accent">HR</span></span>
+        </div>
+        <button class="menu-btn" id="menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li class="has-dropdown">
+                <a href="services.html">Our Services <span class="arrow">&#9662;</span></a>
+                <ul class="dropdown">
+                    <li><a href="services.html#recruitment">Recruitment</a></li>
+                    <li><a href="services.html#payroll">Payroll Management</a></li>
+                    <li><a href="services.html#compliance">Compliance</a></li>
+                    <li><a href="services.html#consulting">HR Consulting</a></li>
+                </ul>
+            </li>
+            <li><a href="jobs.html">Jobs &amp; Careers</a></li>
+            <li><a href="employers.html">For Employers</a></li>
+            <li><a href="training.html">Training &amp; Development</a></li>
+            <li><a href="labour-law.html">Labour Law</a></li>
+            <li><a href="blog.html">HR Resources</a></li>
+            <li><a href="contacts.html" class="active">Contact Us</a></li>
+            <li><a href="consultation.html" class="nav-cta">Book Consultation</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- CONTACT PAGE -->
+<div class="contact-page">
+    <div class="container">
+
+        <!-- Heading -->
+        <div class="contact-hero">
+            <h1>Contact Us</h1>
+            <p>Reach out — we respond within 2 hours on weekdays.</p>
+        </div>
+
+        <!-- Contact Detail Cards -->
+        <div class="contact-cards">
+            <a href="tel:0705150119" class="contact-card" id="card-phone">
+                <div class="contact-card-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="contact-card-text">
+                    <strong>Call / WhatsApp</strong>
+                    <span>0705150119</span>
+                </div>
+            </a>
+            <a href="mailto:petermwendwae@gmail.com" class="contact-card" id="card-email">
+                <div class="contact-card-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="contact-card-text">
+                    <strong>Email Us</strong>
+                    <span>petermwendwae@gmail.com</span>
+                </div>
+            </a>
+            <div class="contact-card" id="card-location" style="cursor:default;">
+                <div class="contact-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="contact-card-text">
+                    <strong>Office</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick action buttons -->
+        <div class="quick-actions">
+            <a href="tel:0102573071" class="btn btn-primary" id="call-btn">
+                <i class="fa-solid fa-phone"></i> Call Us — 0102573071
+            </a>
+            <a href="https://wa.me/254705150119?text=Hello%20Talent%20Bridge%20HR" class="btn btn-outline" id="wa-btn" target="_blank" style="border-color:#25D366;color:#25D366;">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+            </a>
+            <a href="consultation.html" class="btn btn-outline" id="consult-btn">
+                <i class="fa-solid fa-calendar-check"></i> Book Consultation
+            </a>
+        </div>
+
+        <!-- Hours note -->
+        <p class="hours-note">
+            <i class="fa-regular fa-clock"></i>
+            Office hours: Mon – Fri, 8:00 AM – 6:00 PM &nbsp;|&nbsp; Sat, 9:00 AM – 1:00 PM
+        </p>
+
+        <!-- Toggle button for message form -->
+        <div style="margin-top:28px;text-align:center;">
+            <button class="toggle-msg-btn" id="toggle-msg-btn" onclick="toggleForm()">
+                <i class="fa-solid fa-envelope"></i>
+                Send Us a Message
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </button>
+        </div>
+
+        <!-- Collapsible Message Form -->
+        <div class="msg-form-wrap" id="msg-form-wrap">
+            <div class="msg-form-inner">
+                <h3><i class="fa-solid fa-paper-plane" style="color:var(--primary-light);margin-right:8px;"></i>Send a Message</h3>
+                <form id="contact-form" onsubmit="handleContact(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ct-name">Full Name</label>
+                            <input type="text" id="ct-name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ct-email">Email</label>
+                            <input type="email" id="ct-email" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ct-subject">Subject</label>
+                        <input type="text" id="ct-subject" placeholder="How can we help?">
+                    </div>
+                    <div class="form-group">
+                        <label for="ct-message">Message</label>
+                        <textarea id="ct-message" placeholder="Write your message here..." style="min-height:100px;" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;" id="contact-submit-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+                <div class="success-box" id="ct-success">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h3>Message Sent!</h3>
+                    <p>We will reply within 2 working hours.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer" id="footer">
+    <div class="footer-main">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon"><i class="fa-solid fa-bridge-water"></i></div>
+                        <span>Talent Bridge <span class="logo-accent">HR</span></span>
+                    </div>
+                    <p>Your trusted partner for HR solutions across Kenya since 2026.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Recruitment &amp; Staffing</a></li>
+                        <li><a href="training.html">Training &amp; Development</a></li>
+                        <li><a href="labour-law.html">Labour Law &amp; Compliance</a></li>
+                        <li><a href="employers.html">For Employers</a></li>
+                        <li><a href="services.html#payroll">Payroll Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="jobs.html">Jobs &amp; Careers</a></li>
+                        <li><a href="blog.html">HR Resources</a></li>
+                        <li><a href="consultation.html">Book Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact-info">
+                        <div class="contact-row"><i class="fa-solid fa-phone"></i><p><a href="tel:0705150119">0705150119</a></p></div>
+                        <div class="contact-row"><i class="fa-solid fa-envelope"></i><p><a href="mailto:petermwendwae@gmail.com">petermwendwae@gmail.com</a></p></div>
+                        <div class="contact-row"><i class="fa-regular fa-clock"></i><p>Mon–Fri: 8 AM – 6 PM</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Talent Bridge HR Solutions. All Rights Reserved.</p>
+            <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/254705150119?text=Hello%20Talent%20Bridge%20HR" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+function toggleForm() {
+    const wrap = document.getElementById('msg-form-wrap');
+    const btn  = document.getElementById('toggle-msg-btn');
+    const isOpen = wrap.classList.contains('visible');
+    wrap.classList.toggle('visible', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+}
+
+function handleContact(e) {
+    e.preventDefault();
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('ct-success').style.display = 'block';
+}
+</script>
+
+</body>
+</html>

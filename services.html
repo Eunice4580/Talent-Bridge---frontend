@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="Comprehensive HR services including recruitment, payroll, training and labour law compliance.">
+    <title>Our Services – Talent Bridge HR Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+    <style>
+        /* Accordion service cards */
+        .accord-list { display: flex; flex-direction: column; gap: 8px; }
+
+        .accord-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+        .accord-item.open { border-color: var(--primary); }
+
+        .accord-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 18px;
+            cursor: pointer;
+            user-select: none;
+            width: 100%;
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            color: var(--white);
+            text-align: left;
+        }
+        .accord-header:hover { background: rgba(255,255,255,0.03); }
+
+        .accord-icon {
+            width: 38px; height: 38px;
+            background: rgba(30,64,175,0.12);
+            border: 1px solid rgba(30,64,175,0.2);
+            border-radius: var(--radius);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary-light);
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .accord-title { flex: 1; font-weight: 600; font-size: 0.95rem; }
+        .accord-arrow {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+        .accord-item.open .accord-arrow { transform: rotate(180deg); color: var(--primary-light); }
+
+        .accord-body {
+            display: none;
+            padding: 0 18px 18px 70px;
+            animation: fadeUp 0.2s ease;
+        }
+        .accord-item.open .accord-body { display: block; }
+
+        .accord-body p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            line-height: 1.65;
+            margin-bottom: 12px;
+        }
+        .accord-body ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            list-style: none;
+            padding: 0;
+        }
+        .accord-body ul li {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 640px) {
+            .accord-body { padding-left: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-bridge-water"></i></div>
+            <span>Talent Bridge <span class="logo-accent">HR</span></span>
+        </div>
+        <button class="menu-btn" id="menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li class="has-dropdown">
+                <a href="services.html" class="active">Our Services <span class="arrow">&#9662;</span></a>
+                <ul class="dropdown">
+                    <li><a href="services.html#recruitment">Recruitment</a></li>
+                    <li><a href="services.html#payroll">Payroll Management</a></li>
+                    <li><a href="services.html#compliance">Compliance</a></li>
+                    <li><a href="services.html#consulting">HR Consulting</a></li>
+                </ul>
+            </li>
+            <li><a href="jobs.html">Jobs &amp; Careers</a></li>
+            <li><a href="employers.html">For Employers</a></li>
+            <li><a href="training.html">Training &amp; Development</a></li>
+            <li><a href="labour-law.html">Labour Law</a></li>
+            <li><a href="blog.html">HR Resources</a></li>
+            <li><a href="contacts.html">Contact Us</a></li>
+            <li><a href="consultation.html" class="nav-cta">Book Consultation</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Our Services</span>
+        </div>
+        <h1>Our HR Services</h1>
+        <p>Tap any service to learn more.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">What We Offer</div>
+            <h2>Full-Spectrum HR Services</h2>
+        </div>
+
+        <div class="accord-list" id="services-accordion">
+
+            <div class="accord-item" id="recruitment">
+                <button class="accord-header" onclick="toggleAccord(this)">
+                    <div class="accord-icon"><i class="fa-solid fa-users"></i></div>
+                    <span class="accord-title">Recruitment &amp; Staffing</span>
+                    <i class="fa-solid fa-chevron-down accord-arrow"></i>
+                </button>
+                <div class="accord-body">
+                    <p>We source and place top talent across all industries — permanent, contract, and temporary. Our screening includes competency assessments, background checks, and reference verification.</p>
+                    <ul><li>Permanent Placement</li><li>Contract Staffing</li><li>Executive Search</li><li>Volume Hiring</li></ul>
+                </div>
+            </div>
+
+            <div class="accord-item" id="payroll">
+                <button class="accord-header" onclick="toggleAccord(this)">
+                    <div class="accord-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+                    <span class="accord-title">Payroll Management</span>
+                    <i class="fa-solid fa-chevron-down accord-arrow"></i>
+                </button>
+                <div class="accord-body">
+                    <p>Accurate, timely, and fully compliant payroll processing. We handle all statutory deductions — PAYE, NSSF, NHIF, and NITA — and deliver payslips on schedule every month.</p>
+                    <ul><li>Monthly Payroll Processing</li><li>Statutory Compliance</li><li>Payslip Generation</li><li>Year-End Returns</li></ul>
+                </div>
+            </div>
+
+            <div class="accord-item" id="compliance">
+                <button class="accord-header" onclick="toggleAccord(this)">
+                    <div class="accord-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <span class="accord-title">Labour Law &amp; Compliance</span>
+                    <i class="fa-solid fa-chevron-down accord-arrow"></i>
+                </button>
+                <div class="accord-body">
+                    <p>Navigate Kenya's employment law landscape with confidence. We draft compliant contracts, handle disputes, and keep you current with all legislative changes.</p>
+                    <ul><li>Contract Drafting &amp; Review</li><li>Disciplinary Procedures</li><li>Labour Dispute Resolution</li><li>Legal Advisory</li></ul>
+                </div>
+            </div>
+
+            <div class="accord-item" id="consulting">
+                <button class="accord-header" onclick="toggleAccord(this)">
+                    <div class="accord-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <span class="accord-title">HR Consulting</span>
+                    <i class="fa-solid fa-chevron-down accord-arrow"></i>
+                </button>
+                <div class="accord-body">
+                    <p>Strategic HR advisory to align your people strategy with your business objectives. From HR audits to organisational restructuring, we guide your transformation.</p>
+                    <ul><li>HR Audits</li><li>Policy Development</li><li>Performance Management</li><li>Organisational Design</li></ul>
+                </div>
+            </div>
+
+            <div class="accord-item">
+                <button class="accord-header" onclick="toggleAccord(this)">
+                    <div class="accord-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <span class="accord-title">Training &amp; Development</span>
+                    <i class="fa-solid fa-chevron-down accord-arrow"></i>
+                </button>
+                <div class="accord-body">
+                    <p>Upskill your workforce with tailored training programmes, leadership workshops, and professional certifications delivered by certified facilitators.</p>
+                    <ul><li>Leadership Development</li><li>HR Certification</li><li>Labour Law Masterclass</li><li>Custom Corporate Training</li></ul>
+                </div>
+            </div>
+
+            <div class="accord-item">
+                <button class="accord-header" onclick="toggleAccord(this)">
+                    <div class="accord-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+                    <span class="accord-title">Onboarding &amp; HR Administration</span>
+                    <i class="fa-solid fa-chevron-down accord-arrow"></i>
+                </button>
+                <div class="accord-body">
+                    <p>Streamline employee onboarding and day-to-day HR administration so your team can focus on strategic work, not paperwork.</p>
+                    <ul><li>Employee Onboarding</li><li>HR Records Management</li><li>Leave Management</li><li>Benefits Administration</li></ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="cta-banner">
+    <div class="container">
+        <div class="cta-text">
+            <h2>Ready to Get Started?</h2>
+            <p>Book a free 30-minute consultation with our certified HR experts today.</p>
+        </div>
+        <div class="cta-actions">
+            <a href="consultation.html" class="btn btn-white"><i class="fa-solid fa-calendar-check"></i> Book Free Consultation</a>
+            <a href="contacts.html" class="btn btn-outline-white"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer" id="footer">
+    <div class="footer-main">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon"><i class="fa-solid fa-bridge-water"></i></div>
+                        <span>Talent Bridge <span class="logo-accent">HR</span></span>
+                    </div>
+                    <p>Your trusted partner for HR solutions across Kenya since 2026.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Recruitment &amp; Staffing</a></li>
+                        <li><a href="training.html">Training &amp; Development</a></li>
+                        <li><a href="labour-law.html">Labour Law &amp; Compliance</a></li>
+                        <li><a href="employers.html">For Employers</a></li>
+                        <li><a href="services.html#payroll">Payroll Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="jobs.html">Jobs &amp; Careers</a></li>
+                        <li><a href="blog.html">HR Resources</a></li>
+                        <li><a href="consultation.html">Book Consultation</a></li>
+                        <li><a href="contacts.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact-info">
+                        <div class="contact-row"><i class="fa-solid fa-phone"></i><p><a href="tel:0705150119">0705150119</a></p></div>
+                        <div class="contact-row"><i class="fa-solid fa-envelope"></i><p><a href="mailto:petermwendwae@gmail.com">petermwendwae@gmail.com</a></p></div>
+                        <div class="contact-row"><i class="fa-regular fa-clock"></i><p>Mon–Fri: 8 AM – 6 PM</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Talent Bridge HR Solutions. All Rights Reserved.</p>
+            <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/254705150119?text=Hello%20Talent%20Bridge%20HR" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+function toggleAccord(btn) {
+    const item = btn.closest('.accord-item');
+    const isOpen = item.classList.contains('open');
+    // close all others
+    document.querySelectorAll('.accord-item.open').forEach(el => el.classList.remove('open'));
+    // toggle this one
+    if (!isOpen) item.classList.add('open');
+}
+</script>
+
+</body>
+</html>

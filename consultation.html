@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="Book a free 30-minute HR consultation with Talent Bridge HR Solutions experts.">
+    <title>Book Consultation – Talent Bridge HR Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+    <style>
+        .consult-page { padding: 90px 0 48px; }
+        .consult-hero { text-align: center; margin-bottom: 28px; }
+        .consult-hero h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: 8px; }
+        .consult-hero p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* Why consult strip */
+        .why-consult {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            max-width: 640px;
+            margin: 0 auto 28px;
+        }
+        .why-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .why-item i { color: var(--accent); font-size: 0.85rem; margin-top: 2px; flex-shrink: 0; }
+        .why-item strong { display: block; font-size: 0.82rem; color: var(--white); margin-bottom: 2px; }
+        .why-item p { font-size: 0.76rem; color: var(--text-muted); line-height: 1.45; margin: 0; }
+
+        /* Toggle button */
+        .toggle-form-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            max-width: 360px;
+            margin: 0 auto 20px;
+            padding: 13px 24px;
+            background: var(--primary);
+            border: none;
+            border-radius: var(--radius);
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: var(--transition);
+        }
+        .toggle-form-btn:hover { background: var(--primary-dark); }
+        .toggle-form-btn i.chevron { transition: transform 0.25s ease; }
+        .toggle-form-btn.open i.chevron { transform: rotate(180deg); }
+
+        /* Collapsible form */
+        .consult-form-wrap {
+            max-width: 580px;
+            margin: 0 auto;
+            display: none;
+            animation: fadeUp 0.25s ease;
+        }
+        .consult-form-wrap.visible { display: block; }
+
+        .consult-form-inner {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+        }
+        .consult-form-inner h3 { font-size: 1rem; margin-bottom: 16px; }
+
+        @media (max-width: 480px) {
+            .why-consult { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-bridge-water"></i></div>
+            <span>Talent Bridge <span class="logo-accent">HR</span></span>
+        </div>
+        <button class="menu-btn" id="menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li class="has-dropdown">
+                <a href="services.html">Our Services <span class="arrow">&#9662;</span></a>
+                <ul class="dropdown">
+                    <li><a href="services.html#recruitment">Recruitment</a></li>
+                    <li><a href="services.html#payroll">Payroll Management</a></li>
+                    <li><a href="services.html#compliance">Compliance</a></li>
+                    <li><a href="services.html#consulting">HR Consulting</a></li>
+                </ul>
+            </li>
+            <li><a href="jobs.html">Jobs &amp; Careers</a></li>
+            <li><a href="employers.html">For Employers</a></li>
+            <li><a href="training.html">Training &amp; Development</a></li>
+            <li><a href="labour-law.html">Labour Law</a></li>
+            <li><a href="blog.html">HR Resources</a></li>
+            <li><a href="contacts.html">Contact Us</a></li>
+            <li><a href="consultation.html" class="nav-cta">Book Consultation</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="consult-page">
+    <div class="container">
+
+        <div class="consult-hero">
+            <h1>Book a Free Consultation</h1>
+            <p>30 minutes with our HR experts — completely free, no commitment.</p>
+        </div>
+
+        <!-- Why consult -->
+        <div class="why-consult">
+            <div class="why-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <div><strong>30-Minute Session</strong><p>Focused conversation with a certified HR consultant.</p></div>
+            </div>
+            <div class="why-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <div><strong>No Sales Pitch</strong><p>Genuine advice first — we are here to help, not sell.</p></div>
+            </div>
+            <div class="why-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <div><strong>Clear Action Plan</strong><p>Leave with specific next steps and recommendations.</p></div>
+            </div>
+            <div class="why-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <div><strong>100% Free</strong><p>No hidden fees, no credit card required.</p></div>
+            </div>
+        </div>
+
+        <!-- Toggle button -->
+        <div style="text-align:center;">
+            <button class="toggle-form-btn" id="toggle-form-btn" onclick="toggleConsultForm()">
+                <i class="fa-solid fa-calendar-check"></i>
+                Schedule My Free Session
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </button>
+        </div>
+
+        <!-- Collapsible form -->
+        <div class="consult-form-wrap" id="consult-form-wrap">
+            <div class="consult-form-inner">
+                <h3><i class="fa-regular fa-calendar-check" style="color:var(--primary-light);margin-right:8px;"></i>Fill In Your Details</h3>
+                <form id="consultation-form" onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group"><label for="con-fname">First Name</label><input type="text" id="con-fname" placeholder="Jane" required></div>
+                        <div class="form-group"><label for="con-lname">Last Name</label><input type="text" id="con-lname" placeholder="Doe" required></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label for="con-email">Email</label><input type="email" id="con-email" placeholder="jane@company.com" required></div>
+                        <div class="form-group"><label for="con-phone">Phone</label><input type="tel" id="con-phone" placeholder="0700 000 000" required></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="con-service">Service Interested In</label>
+                        <select id="con-service">
+                            <option value="">Select a service...</option>
+                            <option>Recruitment &amp; Staffing</option>
+                            <option>Payroll Management</option>
+                            <option>Labour Law &amp; Compliance</option>
+                            <option>Training &amp; Development</option>
+                            <option>HR Consulting</option>
+                            <option>General HR Enquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="con-message">Tell Us About Your Needs (optional)</label>
+                        <textarea id="con-message" placeholder="Briefly describe what you need help with..." style="min-height:90px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;" id="consult-submit-btn">
+                        <i class="fa-solid fa-calendar-check"></i> Book My Free Consultation
+                    </button>
+                </form>
+                <div class="success-box" id="form-success">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h3>Booking Received!</h3>
+                    <p>We will contact you within 2 hours to confirm your consultation slot.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="site-footer" id="footer">
+    <div class="footer-main">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon"><i class="fa-solid fa-bridge-water"></i></div>
+                        <span>Talent Bridge <span class="logo-accent">HR</span></span>
+                    </div>
+                    <p>Your trusted partner for HR solutions across Kenya since 2026.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Recruitment &amp; Staffing</a></li>
+                        <li><a href="training.html">Training &amp; Development</a></li>
+                        <li><a href="labour-law.html">Labour Law &amp; Compliance</a></li>
+                        <li><a href="employers.html">For Employers</a></li>
+                        <li><a href="services.html#payroll">Payroll Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="jobs.html">Jobs &amp; Careers</a></li>
+                        <li><a href="blog.html">HR Resources</a></li>
+                        <li><a href="contacts.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact-info">
+                        <div class="contact-row"><i class="fa-solid fa-phone"></i><p><a href="tel:0705150119">0705150119</a></p></div>
+                        <div class="contact-row"><i class="fa-solid fa-envelope"></i><p><a href="mailto:petermwendwae@gmail.com">petermwendwae@gmail.com</a></p></div>
+                        <div class="contact-row"><i class="fa-regular fa-clock"></i><p>Mon–Fri: 8 AM – 6 PM</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Talent Bridge HR Solutions. All Rights Reserved.</p>
+            <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/254705150119?text=Hello%20Talent%20Bridge%20HR" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+function toggleConsultForm() {
+    const wrap = document.getElementById('consult-form-wrap');
+    const btn  = document.getElementById('toggle-form-btn');
+    const isOpen = wrap.classList.contains('visible');
+    wrap.classList.toggle('visible', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    if (!isOpen) setTimeout(() => wrap.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('consultation-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
