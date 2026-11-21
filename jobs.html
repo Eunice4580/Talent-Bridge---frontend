@@ -26,14 +26,14 @@
                 <a href="services.html">Our Services <span class="arrow">&#9662;</span></a>
                 <ul class="dropdown">
                     <li><a href="services.html#recruitment">Recruitment</a></li>
-                    <li><a href="services.html#payroll">Payroll Management</a></li>
+                    <li><a href="services.html#governance">Governance</a></li>
                     <li><a href="services.html#compliance">Compliance</a></li>
                     <li><a href="services.html#consulting">HR Consulting</a></li>
                 </ul>
             </li>
             <li><a href="jobs.html"  class="active">Jobs &amp; Careers</a></li>
-            <li><a href="employers.html">For Employers</a></li>
-            <li><a href="training.html">Training &amp; Development</a></li>
+            <li><a href="employers.html">Employers</a></li>
+            <li><a href="training.html">Training</a></li>
             <li><a href="labour-law.html">Labour Law</a></li>
             <li><a href="blog.html">HR Resources</a></li>
             <li><a href="contacts.html">Contact Us</a></li>
@@ -60,89 +60,42 @@
             <h2>Current Job Openings</h2>
             <p>All positions are sourced and vetted by our specialist recruitment team</p>
         </div>
-        <div class="jobs-grid">
-            <div class="job-card" id="job-hr-manager">
-                <div class="job-badge">Featured</div>
-                <div class="job-top">
-                    <div class="job-icon"><i class="fa-solid fa-landmark"></i></div>
-                    <div><p class="job-title">HR Manager</p><p class="job-company">First National Bank Kenya</p></div>
+        <div class="jobs-grid" id="jobs-grid">
+            <div class="jobs-state"><i class="fa-solid fa-spinner fa-spin"></i>Loading openings...</div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="advertise-vacancy">
+    <div class="container">
+        <div class="vacancy-ad">
+            <div class="vacancy-ad-content">
+                <div class="section-tag">For Employers</div>
+                <h2>Have a Vacancy to Fill?</h2>
+                <p>Advertise your job opening to thousands of qualified candidates across Kenya. Send us the role details and our recruitment team will write, publish and promote your advert — then deliver a pre-screened shortlist.</p>
+                <div class="vacancy-ad-actions">
+                    <a href="mailto:tbridgehrsolutions@gmail.com?subject=Job%20Vacancy%20Advertisement" class="btn btn-primary" id="advertise-email-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Email Your Vacancy
+                    </a>
+                    <a href="contacts.html" class="btn btn-outline" id="advertise-contact-btn">
+                        <i class="fa-solid fa-phone"></i> Talk to Our Team
+                    </a>
                 </div>
-                <div class="job-meta">
-                    <span class="job-meta-item"><i class="fa-solid fa-location-dot"></i> Nairobi CBD</span>
-                    <span class="job-meta-item"><i class="fa-solid fa-money-bill-wave"></i> KSh 150,000+</span>
-                    <span class="job-meta-item"><i class="fa-regular fa-clock"></i> Full-time</span>
-                </div>
-                <div class="job-tags"><span class="tag">HR Strategy</span><span class="tag">Leadership</span><span class="tag">Banking</span></div>
-                <a href="consultation.html" class="btn btn-outline btn-sm">Apply Now</a>
             </div>
-            <div class="job-card" id="job-ta-specialist">
-                <div class="job-badge new">New</div>
-                <div class="job-top">
-                    <div class="job-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-                    <div><p class="job-title">Talent Acquisition Specialist</p><p class="job-company">Safaricom PLC</p></div>
-                </div>
-                <div class="job-meta">
-                    <span class="job-meta-item"><i class="fa-solid fa-location-dot"></i> Westlands</span>
-                    <span class="job-meta-item"><i class="fa-solid fa-money-bill-wave"></i> KSh 80,000+</span>
-                    <span class="job-meta-item"><i class="fa-regular fa-clock"></i> Full-time</span>
-                </div>
-                <div class="job-tags"><span class="tag">Recruitment</span><span class="tag">Tech</span></div>
-                <a href="consultation.html" class="btn btn-outline btn-sm">Apply Now</a>
-            </div>
-            <div class="job-card" id="job-payroll">
-                <div class="job-badge remote">Remote</div>
-                <div class="job-top">
-                    <div class="job-icon"><i class="fa-solid fa-calculator"></i></div>
-                    <div><p class="job-title">Payroll Administrator</p><p class="job-company">Kenya Power</p></div>
-                </div>
-                <div class="job-meta">
-                    <span class="job-meta-item"><i class="fa-solid fa-location-dot"></i> Remote</span>
-                    <span class="job-meta-item"><i class="fa-solid fa-money-bill-wave"></i> KSh 60,000+</span>
-                    <span class="job-meta-item"><i class="fa-regular fa-clock"></i> Contract</span>
-                </div>
-                <div class="job-tags"><span class="tag">Payroll</span><span class="tag">Finance</span></div>
-                <a href="consultation.html" class="btn btn-outline btn-sm">Apply Now</a>
-            </div>
-            <div class="job-card" id="job-training">
-                <div class="job-top">
-                    <div class="job-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <div><p class="job-title">L&amp;D Coordinator</p><p class="job-company">Kenya Airways</p></div>
-                </div>
-                <div class="job-meta">
-                    <span class="job-meta-item"><i class="fa-solid fa-location-dot"></i> Embakasi</span>
-                    <span class="job-meta-item"><i class="fa-solid fa-money-bill-wave"></i> KSh 70,000+</span>
-                    <span class="job-meta-item"><i class="fa-regular fa-clock"></i> Full-time</span>
-                </div>
-                <div class="job-tags"><span class="tag">Training</span><span class="tag">L&amp;D</span></div>
-                <a href="consultation.html" class="btn btn-outline btn-sm">Apply Now</a>
-            </div>
-            <div class="job-card" id="job-compliance">
-                <div class="job-badge new">New</div>
-                <div class="job-top">
-                    <div class="job-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-                    <div><p class="job-title">HR Compliance Officer</p><p class="job-company">Equity Bank</p></div>
-                </div>
-                <div class="job-meta">
-                    <span class="job-meta-item"><i class="fa-solid fa-location-dot"></i> Upper Hill</span>
-                    <span class="job-meta-item"><i class="fa-solid fa-money-bill-wave"></i> KSh 90,000+</span>
-                    <span class="job-meta-item"><i class="fa-regular fa-clock"></i> Full-time</span>
-                </div>
-                <div class="job-tags"><span class="tag">Compliance</span><span class="tag">Labour Law</span></div>
-                <a href="consultation.html" class="btn btn-outline btn-sm">Apply Now</a>
-            </div>
-            <div class="job-card" id="job-recruiter">
-                <div class="job-top">
-                    <div class="job-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <div><p class="job-title">Senior Recruiter</p><p class="job-company">Talent Bridge HR Solutions</p></div>
-                </div>
-                <div class="job-meta">
-                    <span class="job-meta-item"><i class="fa-solid fa-location-dot"></i> Westlands</span>
-                    <span class="job-meta-item"><i class="fa-solid fa-money-bill-wave"></i> KSh 75,000+</span>
-                    <span class="job-meta-item"><i class="fa-regular fa-clock"></i> Full-time</span>
-                </div>
-                <div class="job-tags"><span class="tag">Recruitment</span><span class="tag">HR</span></div>
-                <a href="consultation.html" class="btn btn-outline btn-sm">Apply Now</a>
-            </div>
+            <ul class="vacancy-ad-steps">
+                <li>
+                    <span>01</span>
+                    <div><strong>Share the details</strong><p>Send the role, requirements, location and salary range.</p></div>
+                </li>
+                <li>
+                    <span>02</span>
+                    <div><strong>We advertise</strong><p>Your vacancy is published and promoted to our candidate network.</p></div>
+                </li>
+                <li>
+                    <span>03</span>
+                    <div><strong>You hire</strong><p>Receive a shortlist of vetted, interview-ready candidates.</p></div>
+                </li>
+            </ul>
         </div>
     </div>
 </section>
@@ -182,7 +135,7 @@
                         <li><a href="training.html">Training &amp; Development</a></li>
                         <li><a href="labour-law.html">Labour Law &amp; Compliance</a></li>
                         <li><a href="employers.html">For Employers</a></li>
-                        <li><a href="services.html#payroll">Payroll Management</a></li>
+                        <li><a href="services.html#governance">Governance</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -200,6 +153,7 @@
                     <div class="footer-contact-info">
                         <div class="contact-row"><i class="fa-solid fa-phone"></i><p><a href="tel:0705150119">0705150119</a></p></div>
                         <div class="contact-row"><i class="fa-solid fa-envelope"></i><p><a href="mailto:petermwendwae@gmail.com">petermwendwae@gmail.com</a></p></div>
+                        <div class="contact-row"><i class="fa-solid fa-envelope"></i><p><a href="mailto:tbridgehrsolutions@gmail.com">tbridgehrsolutions@gmail.com</a></p></div>
                         <div class="contact-row"><i class="fa-regular fa-clock"></i><p>Mon–Fri: 8:00 AM – 6:00 PM</p></div>
                     </div>
                 </div>
@@ -216,5 +170,59 @@
 <a href="https://wa.me/254705150119?text=Hello%20Talent%20Bridge%20HR" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
+
+<!-- Application modal -->
+<div class="modal-overlay" id="apply-modal" role="dialog" aria-modal="true" aria-labelledby="apply-modal-title">
+    <div class="modal" role="document">
+        <button type="button" class="modal-close" id="apply-close" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h3 id="apply-modal-title">Apply for this role</h3>
+        <p class="modal-sub" id="apply-modal-sub"></p>
+        <form id="apply-form">
+            <input type="hidden" id="apply-vacancy-id">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="apply-name">Full Name</label>
+                    <input type="text" id="apply-name" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="apply-email">Email</label>
+                    <input type="email" id="apply-email" placeholder="you@example.com" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="apply-phone">Phone</label>
+                <input type="tel" id="apply-phone" placeholder="0700 000 000" required>
+            </div>
+            <div class="form-group">
+                <label for="apply-cover">Cover Note (optional)</label>
+                <textarea id="apply-cover" style="min-height:90px;" placeholder="Briefly tell us why you are a good fit..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="apply-cv">CV (PDF, DOC or DOCX, max 5MB)</label>
+                <input type="file" id="apply-cv" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+                <p class="file-note">Your CV is stored privately and only seen by our recruitment team.</p>
+            </div>
+            <div class="hp-field" aria-hidden="true">
+                <label for="apply-website">Website</label>
+                <input type="text" id="apply-website" tabindex="-1" autocomplete="off">
+            </div>
+            <button type="submit" class="btn btn-primary" id="apply-submit-btn" style="width:100%;justify-content:center;">
+                <i class="fa-solid fa-paper-plane"></i> Submit Application
+            </button>
+            <p class="form-error" id="apply-error" role="alert" hidden></p>
+        </form>
+        <div class="success-box" id="apply-success">
+            <i class="fa-solid fa-circle-check"></i>
+            <h3>Application Received!</h3>
+            <p>Our recruitment team will review your CV and contact you if you are shortlisted.</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/jobs.js"></script>
 </body>
 </html>

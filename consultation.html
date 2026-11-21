@@ -99,14 +99,14 @@
                 <a href="services.html">Our Services <span class="arrow">&#9662;</span></a>
                 <ul class="dropdown">
                     <li><a href="services.html#recruitment">Recruitment</a></li>
-                    <li><a href="services.html#payroll">Payroll Management</a></li>
+                    <li><a href="services.html#governance">Governance</a></li>
                     <li><a href="services.html#compliance">Compliance</a></li>
                     <li><a href="services.html#consulting">HR Consulting</a></li>
                 </ul>
             </li>
             <li><a href="jobs.html">Jobs &amp; Careers</a></li>
-            <li><a href="employers.html">For Employers</a></li>
-            <li><a href="training.html">Training &amp; Development</a></li>
+            <li><a href="employers.html">Employers</a></li>
+            <li><a href="training.html">Training</a></li>
             <li><a href="labour-law.html">Labour Law</a></li>
             <li><a href="blog.html">HR Resources</a></li>
             <li><a href="contacts.html">Contact Us</a></li>
@@ -170,7 +170,7 @@
                         <select id="con-service">
                             <option value="">Select a service...</option>
                             <option>Recruitment &amp; Staffing</option>
-                            <option>Payroll Management</option>
+                            <option>Governance</option>
                             <option>Labour Law &amp; Compliance</option>
                             <option>Training &amp; Development</option>
                             <option>HR Consulting</option>
@@ -181,9 +181,14 @@
                         <label for="con-message">Tell Us About Your Needs (optional)</label>
                         <textarea id="con-message" placeholder="Briefly describe what you need help with..." style="min-height:90px;"></textarea>
                     </div>
+                    <div class="hp-field" aria-hidden="true">
+                        <label for="con-website">Website</label>
+                        <input type="text" id="con-website" tabindex="-1" autocomplete="off">
+                    </div>
                     <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;" id="consult-submit-btn">
                         <i class="fa-solid fa-calendar-check"></i> Book My Free Consultation
                     </button>
+                    <p class="form-error" id="con-error" role="alert" hidden></p>
                 </form>
                 <div class="success-box" id="form-success">
                     <i class="fa-solid fa-circle-check"></i>
@@ -219,7 +224,7 @@
                         <li><a href="training.html">Training &amp; Development</a></li>
                         <li><a href="labour-law.html">Labour Law &amp; Compliance</a></li>
                         <li><a href="employers.html">For Employers</a></li>
-                        <li><a href="services.html#payroll">Payroll Management</a></li>
+                        <li><a href="services.html#governance">Governance</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -236,6 +241,7 @@
                     <div class="footer-contact-info">
                         <div class="contact-row"><i class="fa-solid fa-phone"></i><p><a href="tel:0705150119">0705150119</a></p></div>
                         <div class="contact-row"><i class="fa-solid fa-envelope"></i><p><a href="mailto:petermwendwae@gmail.com">petermwendwae@gmail.com</a></p></div>
+                        <div class="contact-row"><i class="fa-solid fa-envelope"></i><p><a href="mailto:tbridgehrsolutions@gmail.com">tbridgehrsolutions@gmail.com</a></p></div>
                         <div class="contact-row"><i class="fa-regular fa-clock"></i><p>Mon–Fri: 8 AM – 6 PM</p></div>
                     </div>
                 </div>
@@ -254,6 +260,9 @@
     <i class="fa-brands fa-whatsapp"></i>
 </a>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/forms.js"></script>
 <script>
 function toggleConsultForm() {
     const wrap = document.getElementById('consult-form-wrap');
@@ -263,10 +272,35 @@ function toggleConsultForm() {
     btn.classList.toggle('open', !isOpen);
     if (!isOpen) setTimeout(() => wrap.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
 }
-function handleSubmit(e) {
+async function handleSubmit(e) {
     e.preventDefault();
-    document.getElementById('consultation-form').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
+    var honeypot = document.getElementById('con-website').value.trim();
+    var btn = document.getElementById('consult-submit-btn');
+
+    TBForms.hideError('con-error');
+
+    // Bots fill the hidden field; pretend success without storing anything.
+    if (honeypot) {
+        TBForms.showSuccess('consultation-form', 'form-success');
+        return;
+    }
+
+    TBForms.setBusy(btn, true);
+    try {
+        await TBForms.insertRow('consultation_requests', {
+            first_name: document.getElementById('con-fname').value.trim(),
+            last_name: document.getElementById('con-lname').value.trim(),
+            email: document.getElementById('con-email').value.trim(),
+            phone: document.getElementById('con-phone').value.trim(),
+            service: document.getElementById('con-service').value || null,
+            message: document.getElementById('con-message').value.trim() || null
+        });
+        TBForms.showSuccess('consultation-form', 'form-success');
+    } catch (err) {
+        console.error('Consultation form submission failed:', err);
+        TBForms.setBusy(btn, false);
+        TBForms.showError('con-error', 'We could not send your booking. Please try again or email tbridgehrsolutions@gmail.com.');
+    }
 }
 </script>
 
